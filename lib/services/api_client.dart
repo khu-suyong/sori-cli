@@ -4,16 +4,17 @@ import '../config.dart';
 
 class ApiClient {
   ApiClient(this.config, {Dio? dio})
-      : _dio = dio ??
-            Dio(
-              BaseOptions(
-                baseUrl: _normalizeBaseUrl(config),
-                connectTimeout: config.connectTimeout,
-                receiveTimeout: config.receiveTimeout,
-                headers: _resolveHeaders(config),
-                responseType: ResponseType.json,
-              ),
-            );
+    : _dio =
+          dio ??
+          Dio(
+            BaseOptions(
+              baseUrl: _normalizeBaseUrl(config),
+              connectTimeout: config.connectTimeout,
+              receiveTimeout: config.receiveTimeout,
+              headers: _resolveHeaders(config),
+              responseType: ResponseType.json,
+            ),
+          );
 
   final Config config;
   final Dio _dio;
